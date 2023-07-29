@@ -8,6 +8,7 @@
   --primary-yellow: #fac650;
 }
 
+
 /* header */
 
 .header {
@@ -47,7 +48,6 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: 900;
-
 }
 
 .sign, 
