@@ -6,7 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
+        <script type="text/javascript" src="script.js"> </script>
     </head>
     <body>
         <header class="header">
@@ -28,18 +28,20 @@
           </div>
 
           <div class="buttons">
-            <button class="btn btn-square" id="rockBtn">
+            <button class="btn btn-square" id="rockBtn" onclick="handleClick('rock')">
               <div class="sign">✊</div>
             </button>
-            <button class="btn btn-square" id="rockBtn">
+            <button class="btn btn-square" id="rockBtn" onclick="handleClick('paper')">
               <div class="sign">✋</div>
             </button>
-            <button class="btn btn-square" id="scissorsBtn">
+            <button class="btn btn-square" id="scissorsBtn" onclick="handleClick('scissors')">
               <div class="sign">✌</div>
             </button>
           </div>
+
           <div class="result">
             <h1 id="winner"></h1>
+            <h1 id="winner2"></h1>
           </div>
         </main>
 

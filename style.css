@@ -16,7 +16,6 @@
   justify-content: center;
   background-color: var(--header);
   font-weight: 900;
-
 }
 
 .title {
@@ -79,12 +78,22 @@ body {
 
 }
 
+button {
+  border: none;
+}
+
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 900;
   gap: 30px;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 

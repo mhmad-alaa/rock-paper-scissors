@@ -1,8 +1,22 @@
+
+function handleClick(playerSelection) {
+    if (isGameOver()) {
+        return;
+    }
+
+    let computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
+}
+
+
+
 // LOGIC
 const cases = ['rock', 'paper', 'scissors'];
 const rockDraw = '✊';
 const paperDraw = '✋';
 const scissorsDraw = '✌';
+let playerSign = '❔'; 
+let computerSign = '❔';
 
 
 let playerScore = 0; 
@@ -29,9 +43,9 @@ function playRound(playerSelection, computerSelection) {
             playerScore++; 
             computerSign = scissorsDraw;
         }
-        else {
+        else if (computerSelection == 'paper') {
             computerScore++; 
-            computerSign = paperDraw; // paper
+            computerSign = paperDraw; 
         }
     }
     else if (playerSelection == 'scissors') {
@@ -40,35 +54,18 @@ function playRound(playerSelection, computerSelection) {
             playerScore++; 
             computerSign = paperDraw;
         }
-        else {
+        else if (computerSelection == 'rock') {
             computerScore++; 
-            computerSign = rockDraw; // rock
+            computerSign = rockDraw;
         }
     }
+    else if (playerSelection == 'paper') {
+        playerSign = paperDraw;
+        if (computerSelection == 'scissors') {
 
-    if (computerSelection == 'rock') {
-        console.log("hello"); 
-        computerSign = rockDraw;
+        } 
+        else if (computerSelection == 'rock') {
 
-        if (playerSelection == 'scissors') {
-            computerScore++; 
-            playerSign = scissorsDraw;
-        }
-        else {
-            playerScore++; 
-            playerSign = paperDraw; // paper
-        }
-    }
-    else if (computerSelection == 'scissors') {
-        computerSign = scissorsDraw;
-
-        if (playerSelection == 'paper') {
-            computerScore++; 
-            playerSign = paperDraw;
-        }
-        else {
-            playerScore++; 
-            playerSign = rockDraw; // rock
         }
     }
 
@@ -77,38 +74,9 @@ function playRound(playerSelection, computerSelection) {
         computerScore = preComputer;
     }
 
-    playerSign.textContent = playerSign; 
-    computerSign.textContent = computerSign;
+    document.getElementById('playerSign').innerText = playerSign;
+    document.getElementById('computerSign').innerText = computerSign;
+
+    // winner = ???
+    // document.getElementById("winner").innerText = winner;
 }
-
-
-
-
-// UI
-
-const rockBtn = document.getElementById('rockBtn')
-const paperBtn = document.getElementById('paperBtn')
-const scissorsBtn = document.getElementById('scissorsBtn')
-
-// const rock = document.getElementById('rockBtn'); 
-// const paper = document.getElementById('rockBtn'); 
-// const scissors = document.getElementById('scissorsBtn');
-const playerSign = document.getElementById('playerSign');
-const computerSign = document.getElementById('computerSign');
-
-
-rockBtn.addEventListener('click', () => handleClick('rock'));
-paperBtn.addEventListener('click', () => handleClick('paper'));
-scissorsBtn.addEventListener('click', () => handleClick('scissors'));
-
-
-function handleClick(playerSelection) {
-    if (isGameOver()) {
-        return;
-    }
-
-    let computerSelection = getComputerChoice();
-    playRound(playerSelection, computerSelection);
-}
-
-  
