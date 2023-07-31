@@ -3,41 +3,23 @@ function handleClick(playerSelection) {
     if (isGameOver()) {
         return;
     }
-
     let computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
 }
 
-
-// LOGIC
 const cases = ['rock', 'paper', 'scissors'];
 const rockDraw = '✊';
 const paperDraw = '✋';
 const scissorsDraw = '✌';
+
 let playerSign = '🧐'; 
 let computerSign = '🧐';
-
-
 let playerScore = 0; 
 let computerScore = 0; 
 
-
-function getComputerChoice() {
-    return cases[parseInt(Math.random() * 100) % 3];
-}
-
-function isGameOver() {
-    return playerScore == 5 || computerScore == 5; 
-}
-
 function playRound(playerSelection, computerSelection) {
-    let checkEquality = playerSelection == computerSelection;
-    const prePlayer = playerScore;  
-    const preComputer = computerScore; 
-
     if (playerSelection == 'rock') {
         playerSign = rockDraw;
-
         if (computerSelection == 'scissors') {
             playerScore++; 
             computerSign = scissorsDraw;
@@ -45,6 +27,9 @@ function playRound(playerSelection, computerSelection) {
         else if (computerSelection == 'paper') {
             computerScore++; 
             computerSign = paperDraw; 
+        }
+        else if (computerSelection == 'rock') {
+            computerSign = rockDraw; 
         }
     }
     else if (playerSelection == 'scissors') {
@@ -57,6 +42,9 @@ function playRound(playerSelection, computerSelection) {
             computerScore++; 
             computerSign = rockDraw;
         }
+        else if (computerSelection == 'scissors') {
+            computerSign = scissorsDraw; 
+        }
     }
     else if (playerSelection == 'paper') {
         playerSign = paperDraw;
@@ -68,11 +56,9 @@ function playRound(playerSelection, computerSelection) {
             playerScore++; 
             computerSign = rockDraw;
         }
-    }
-
-    if (checkEquality) {
-        playerScore = prePlayer; 
-        computerScore = preComputer;
+        else if (computerSelection == 'paper') {
+            computerSign = paperDraw; 
+        }
     }
 
     document.getElementById('playerSign').innerText = playerSign;
@@ -85,5 +71,12 @@ function playRound(playerSelection, computerSelection) {
         else winner = "Oh, you lost.";
          document.getElementById("winner").innerText = winner;
     }
-   
+}
+
+function getComputerChoice() {
+    return cases[parseInt(Math.random() * 100) % 3];
+}
+
+function isGameOver() {
+    return playerScore == 5 || computerScore == 5; 
 }
