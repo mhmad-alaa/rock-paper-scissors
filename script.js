@@ -9,14 +9,13 @@ function handleClick(playerSelection) {
 }
 
 
-
 // LOGIC
 const cases = ['rock', 'paper', 'scissors'];
 const rockDraw = '✊';
 const paperDraw = '✋';
 const scissorsDraw = '✌';
-let playerSign = '❔'; 
-let computerSign = '❔';
+let playerSign = '🧐'; 
+let computerSign = '🧐';
 
 
 let playerScore = 0; 
@@ -62,10 +61,12 @@ function playRound(playerSelection, computerSelection) {
     else if (playerSelection == 'paper') {
         playerSign = paperDraw;
         if (computerSelection == 'scissors') {
-
+            computerScore++; 
+            computerSign = scissorsDraw;
         } 
         else if (computerSelection == 'rock') {
-
+            playerScore++; 
+            computerSign = rockDraw;
         }
     }
 
@@ -76,7 +77,13 @@ function playRound(playerSelection, computerSelection) {
 
     document.getElementById('playerSign').innerText = playerSign;
     document.getElementById('computerSign').innerText = computerSign;
+    document.getElementById('playerScore').innerText = "Player ⚟ " + playerScore; 
+    document.getElementById('computerScore').innerText = "Computer ⚟ " + computerScore; 
 
-    // winner = ???
-    // document.getElementById("winner").innerText = winner;
+    if (isGameOver()) {
+        if (playerScore > computerScore) winner = "Congratulations human.";
+        else winner = "Oh, you lost.";
+         document.getElementById("winner").innerText = winner;
+    }
+   
 }
