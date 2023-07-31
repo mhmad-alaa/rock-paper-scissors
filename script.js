@@ -67,8 +67,8 @@ function playRound(playerSelection, computerSelection) {
     document.getElementById('computerScore').innerText = "Computer ⚟ " + computerScore; 
 
     if (isGameOver()) {
-        if (playerScore > computerScore) winner = "Congratulations human.";
-        else winner = "Oh, you lost.";
+        if (playerScore > computerScore) winner = "Congrats 🎉";
+        else winner = "Good Luck 😔";
          document.getElementById("winner").innerText = winner;
     }
 }

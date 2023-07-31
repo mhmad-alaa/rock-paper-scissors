@@ -63,6 +63,14 @@ body {
   font-weight: 900;
 }
 
+.result-sign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: 500;
+}
+
 .btn {
   background-color: var(--secondary-dark);
   border-radius: 10px;
