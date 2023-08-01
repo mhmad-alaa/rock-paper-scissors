@@ -8,6 +8,9 @@
   --primary-yellow: #fac650;
 }
 
+* {
+  margin: 0; 
+}
 
 /* header */
 
